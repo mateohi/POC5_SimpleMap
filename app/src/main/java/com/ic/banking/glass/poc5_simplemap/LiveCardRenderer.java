@@ -12,9 +12,6 @@ import android.os.SystemClock;
 import android.view.SurfaceHolder;
 import android.view.View;
 
-/**
- * Renders a fading "Hello world!" in a {@link LiveCard}.
- */
 public class LiveCardRenderer implements DirectRenderingCallback {
 
     /** The duration, in millisconds, of one frame. */
@@ -78,9 +75,6 @@ public class LiveCardRenderer implements DirectRenderingCallback {
         updateRenderingState();
     }
 
-    /**
-     * Starts or stops rendering according to the {@link LiveCard}'s state.
-     */
     private void updateRenderingState() {
         boolean shouldRender = (mHolder != null) && !mRenderingPaused;
         boolean isRendering = (mRenderThread != null);
@@ -96,9 +90,6 @@ public class LiveCardRenderer implements DirectRenderingCallback {
         }
     }
 
-    /**
-     * Draws the view in the SurfaceHolder's canvas.
-     */
     private void draw() {
         Canvas canvas;
         try {
@@ -119,9 +110,6 @@ public class LiveCardRenderer implements DirectRenderingCallback {
         }
     }
 
-    /**
-     * Redraws the {@link View} in the background.
-     */
     private class RenderThread extends Thread {
         private boolean mShouldRun;
 

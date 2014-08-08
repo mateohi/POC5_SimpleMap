@@ -6,6 +6,7 @@ import com.google.android.glass.timeline.LiveCard.PublishMode;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.IBinder;
 
 public class SimpleMapService extends Service {
@@ -21,6 +22,10 @@ public class SimpleMapService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
+        mapIntent.setData(Uri.parse("google.navigation:q=48.649469,-2.02579"));
+        startActivity(mapIntent);
+        /*
         if (liveCard == null) {
             liveCard = new LiveCard(this, LIVE_CARD_TAG);
 
@@ -34,7 +39,7 @@ public class SimpleMapService extends Service {
             liveCard.publish(PublishMode.REVEAL);
         } else {
             liveCard.navigate();
-        }
+        }*/
         return START_STICKY;
     }
 
