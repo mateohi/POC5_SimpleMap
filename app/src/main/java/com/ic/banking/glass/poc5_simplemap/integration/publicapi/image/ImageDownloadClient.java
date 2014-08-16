@@ -14,6 +14,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ImageDownloadClient {
 
@@ -37,14 +38,15 @@ public class ImageDownloadClient {
 
     public ImageDTO getImage(int imageId) {
         HttpGet httpGet = new HttpGet(String.format(PublicUrls.GET_IMAGE_URL, imageId));
+        Log.i(TAG, "GET from " + httpGet.getURI().toString());
         try {
             HttpResponse response = this.httpClient.execute(httpGet);
             int status = response.getStatusLine().getStatusCode();
 
             if (status == HttpStatus.SC_OK) {
                 String data = EntityUtils.toString(response.getEntity());
-                ImageDTO imageDTO = this.gson.fromJson(data, ImageDTO.class);
-                return imageDTO;
+                ImageDTO[] images = this.gson.fromJson(data, ImageDTO[].class);
+                return images[0];
             }
         }
         catch (IOException e) {

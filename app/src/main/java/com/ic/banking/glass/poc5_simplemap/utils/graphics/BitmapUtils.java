@@ -1,4 +1,4 @@
-package com.ic.banking.glass.poc5_simplemap.utils;
+package com.ic.banking.glass.poc5_simplemap.utils.graphics;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

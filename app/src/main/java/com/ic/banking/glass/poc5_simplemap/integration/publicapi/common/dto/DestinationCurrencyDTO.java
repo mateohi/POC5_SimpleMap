@@ -1,6 +1,6 @@
-package com.ic.banking.glass.poc5_simplemap.integration.publicapi.common.api;
+package com.ic.banking.glass.poc5_simplemap.integration.publicapi.common.dto;
 
-public class SourceCurrencyDTO {
+public class DestinationCurrencyDTO {
 
     private String currencySymbol;
     private String currencyAlpha3Code;
@@ -39,5 +39,4 @@ public class SourceCurrencyDTO {
         this.currencyDescription = currencyDescription;
     }
 }
-
 

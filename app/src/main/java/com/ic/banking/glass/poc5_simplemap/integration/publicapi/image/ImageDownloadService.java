@@ -3,7 +3,7 @@ package com.ic.banking.glass.poc5_simplemap.integration.publicapi.image;
 import android.graphics.Bitmap;
 
 import com.ic.banking.glass.poc5_simplemap.integration.publicapi.image.dto.ImageDTO;
-import com.ic.banking.glass.poc5_simplemap.utils.BitmapUtils;
+import com.ic.banking.glass.poc5_simplemap.utils.graphics.BitmapUtils;
 
 public class ImageDownloadService {
 

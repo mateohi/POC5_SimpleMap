@@ -1,7 +1,7 @@
 package com.ic.banking.glass.poc5_simplemap.integration.publicapi.exchange.dto;
 
-import com.ic.banking.glass.poc5_simplemap.integration.publicapi.common.api.DestinationCurrencyDTO;
-import com.ic.banking.glass.poc5_simplemap.integration.publicapi.common.api.SourceCurrencyDTO;
+import com.ic.banking.glass.poc5_simplemap.integration.publicapi.common.dto.DestinationCurrencyDTO;
+import com.ic.banking.glass.poc5_simplemap.integration.publicapi.common.dto.SourceCurrencyDTO;
 
 public class ExchangeRateDTO {
 

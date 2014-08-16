@@ -2,8 +2,7 @@ package com.ic.banking.glass.poc5_simplemap.integration.publicapi;
 
 public class PublicUrls {
 
-    private static final String SERVICE_HOST = "http://icbanking.infocorpgroup.com:81";
-    private static final String SERVICE_PATH = "/Banking.Glass.WebApi/api/framework/common";
+
     private static final String BASE_URL = SERVICE_HOST + SERVICE_PATH;
 
     public static final String GET_PUBLIC_INFO_URL = BASE_URL + "/publicInfo";
