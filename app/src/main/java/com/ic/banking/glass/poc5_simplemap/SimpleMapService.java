@@ -1,8 +1,10 @@
 package com.ic.banking.glass.poc5_simplemap;
 
+import com.google.android.glass.app.Card;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.LiveCard.PublishMode;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
@@ -22,10 +24,6 @@ public class SimpleMapService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
-        mapIntent.setData(Uri.parse("google.navigation:q=48.649469,-2.02579"));
-        startActivity(mapIntent);
-        /*
         if (liveCard == null) {
             liveCard = new LiveCard(this, LIVE_CARD_TAG);
 
@@ -34,12 +32,19 @@ public class SimpleMapService extends Service {
 
             // Display the options menu when the live card is tapped.
             Intent menuIntent = new Intent(this, LiveCardMenuActivity.class);
+
+            /*
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW);
+            mapIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mapIntent.setData(Uri.parse("google.navigation:ll=-34.8738633,-56.1184816&mode=w&title=Zonamerica"));
+            startActivity(mapIntent);*/
+
             liveCard.setAction(PendingIntent.getActivity(this, 0, menuIntent, 0));
             liveCard.attach(this);
             liveCard.publish(PublishMode.REVEAL);
         } else {
             liveCard.navigate();
-        }*/
+        }
         return START_STICKY;
     }
 
