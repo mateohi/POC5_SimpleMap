@@ -1,30 +1,23 @@
 package com.ic.banking.glass.poc5_simplemap;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 
 import com.ic.banking.glass.poc5_simplemap.integration.publicapi.image.ImageDownloadService;
+import com.ic.banking.glass.poc5_simplemap.utils.async.FinishedTaskListener;
+import com.ic.banking.glass.poc5_simplemap.utils.async.SimpleAsyncTask;
 
-public class ImageDownloadTask extends AsyncTask<Integer, Void, Bitmap> {
+public class ImageDownloadTask extends SimpleAsyncTask<Bitmap> {
 
-    private static final String TAG = ImageDownloadTask.class.getSimpleName();
-    private Context context;
-
-    public ImageDownloadTask(Context context) {
-        this.context = context;
+    public ImageDownloadTask(FinishedTaskListener<Bitmap> listener) {
+        super(listener);
     }
 
     @Override
-    protected Bitmap doInBackground(Integer... params) {
-        Integer imageId = params[0];
+    protected Bitmap doInBackground(Object... params) {
+        Integer imageId = (Integer)params[0];
         Bitmap bitmap = ImageDownloadService.instance().getImage(imageId);
 
         return bitmap;
-    }
-
-    @Override
-    protected void onPostExecute(Bitmap bitmap) {
     }
 
 }
